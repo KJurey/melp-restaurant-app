@@ -4,7 +4,7 @@ import { RestaurantsClient } from "@/components/restaurant-client";
 async function getRestaurants(): Promise<Restaurant[]> {
   const res = await fetch(
     "https://recruiting-datasets.s3.us-east-2.amazonaws.com/data_melp.json",
-    { next: { revalidate: 3600 } },
+    { cache: 'force-cache' },
   );
 
   if (!res.ok) {
